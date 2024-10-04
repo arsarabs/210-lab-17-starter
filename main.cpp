@@ -138,7 +138,7 @@ void addNode(Node*&head, float value){
 // deleteNode(Node*&head, float value) deletes a node at a specified position
 // arguments: reference to head node, position to delete
 // returns: true if deleted, otherwise false
-void deleteNode(Node*&head, float position) {
+void deleteNode(Node*&head, float specificPosition) {
     //If statement for input validation
 if(position < 1) { 
 cout << "Invalid! Must be greater than/equal to 1" << endl;
@@ -149,7 +149,7 @@ cout << "Invalid! Must be greater than/equal to 1" << endl;
 
     //Now, we need to traverse list to reach a specific position
     //so we'll use a for-loop
-    for(int i = 0; i < position && current != nullptr; i++) {
+    for(int i = 1; i < specificPosition && current != nullptr; i++) {
         previous = current; // this updates previous node
         current= current->next; //& now it moves to the next node
     }
@@ -167,8 +167,28 @@ cout << "Invalid! Must be greater than/equal to 1" << endl;
 // insertNode(Node*&head, float value) inserts a node after a set position
 // arguments: reference to head node, position to insert after, value to insert
 // returns:  true if inserted, otherwise false
-void insertNode(Node*&head, int specific position, float value) {
+void insertNode(Node*&head, int specificPosition, float value) {
+    //If statement for input validation
+if(position < 0) { 
+cout << "Invalid! Must be greater than/equal to 0" << endl;
+    return false;
+}
+  Node *current = head; //ptr to transverse
+  
 
+    //Now, we need to traverse list. New node is inserted once we reach the node.
+    //so we'll use a for-loop
+    for(int i = 1; i < position && current != nullptr; i++) {
+     current = current->next; // this moves to next node over
+    }
+
+    //// If current is not nullptr, insert after it
+    if(current) {
+       current->next = newNode; //Assigns the given value to new node
+    }else{
+        head = newNode; // this links the new node
+    }
+    return true;
 }
 
 // deleteLinkedList() deletes ENTIRE linked list
