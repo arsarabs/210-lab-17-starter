@@ -15,8 +15,8 @@ struct Node {
 //Let's add some function prototypes
 void output(Node *h);
 void addNode(Node*&head, float value);
-void deleteNode(Node*&head, float value);
-void insertNode(Node*&head, int specific position, float value);
+bool deleteNode(Node*&head, float value);
+bool insertNode(Node*&head, int specificPosition, float value);
 void deleteList(Node *&head);
 
 //MAIN
@@ -138,9 +138,9 @@ void addNode(Node*&head, float value){
 // deleteNode(Node*&head, float value) deletes a node at a specified position
 // arguments: reference to head node, position to delete
 // returns: true if deleted, otherwise false
-void deleteNode(Node*&head, float specificPosition) {
+bool deleteNode(Node*&head, float specificPosition) {
     //If statement for input validation
-if(position < 1) { 
+if(specificPosition < 1) { 
 cout << "Invalid! Must be greater than/equal to 1" << endl;
     return false;
 }
@@ -167,9 +167,9 @@ cout << "Invalid! Must be greater than/equal to 1" << endl;
 // insertNode(Node*&head, float value) inserts a node after a set position
 // arguments: reference to head node, position to insert after, value to insert
 // returns:  true if inserted, otherwise false
-void insertNode(Node*&head, int specificPosition, float value) {
+bool insertNode(Node*&head, int specificPosition, float value) {
     //If statement for input validation
-if(position < 0) { 
+if(specificPosition < 0) { 
 cout << "Invalid! Must be greater than/equal to 0" << endl;
     return false;
 }
@@ -202,6 +202,7 @@ cout << "Invalid! Must be greater than/equal to 0" << endl;
 // arguments: reference to head node
 // returns: void
 void deleteList(Node *&head) {
+    Node *current = head; // Pointer to traverse the list
     while(current){
     Node * temp = current;
     current = current->next;
