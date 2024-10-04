@@ -173,15 +173,22 @@ if(position < 0) {
 cout << "Invalid! Must be greater than/equal to 0" << endl;
     return false;
 }
-  Node *current = head; //ptr to transverse
-  
-
+    Node *current = head; //ptr to transverse
     //Now, we need to traverse list. New node is inserted once we reach the node.
     //so we'll use a for-loop
-    for(int i = 1; i < position && current != nullptr; i++) {
+    for(int i = 1; i < specificPosition && current != nullptr; i++) {
      current = current->next; // this moves to next node over
     }
 
+    //Some more input validaton: 
+    if(current && specificPosition != 0){
+    cout << "Position: " << specificPosition << " does not exist" << endl;
+        return false; 
+    }
+    
+    Node *newNode = new Node; //Let's dynamically allocate memory 
+    newNode->value = value; // in order to assign our given value to new node
+    newNode->next = current ? current->next : nullptr; // and then we'll set it to the next pointer
     //// If current is not nullptr, insert after it
     if(current) {
        current->next = newNode; //Assigns the given value to new node
@@ -195,5 +202,7 @@ cout << "Invalid! Must be greater than/equal to 0" << endl;
 // arguments: reference to head node
 // returns: void
 void deleteList(Node *&head) {
-
-}}
+    Node * temp = current;
+    current = current->next;
+    delete temp;
+}
