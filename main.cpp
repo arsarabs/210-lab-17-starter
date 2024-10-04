@@ -1,6 +1,6 @@
-// COMSC-210 | Lab 15 | Anthony R. Sarabia
-// IDE used: Replit
-#include <iostream>
+// COMSC-210 | Lab 17 | Anthony R. Sarabia
+// IDE used: Github
+#include <iostream> 
 using namespace std;
 
 //Constants for linked list size/format
@@ -139,7 +139,11 @@ void addNode(Node*&head, float value){
 // arguments: reference to head node, position to delete
 // returns: true if deleted, otherwise false
 void deleteNode(Node*&head, float value) {
-
+    //If statement for input validation
+if(position < 1) { 
+cout << "Invalid! Must be greater than/equal to 1" << endl;
+    return false;
+}
 }
 
 // insertNode(Node*&head, float value) inserts a node after a set position
