@@ -12,33 +12,14 @@ struct Node {
     Node *next;
 };
 
-//Let's add some function prototypes (& headers)
-
-// output(Node *h) Displays linked list
-// Arguments: Node Pointer to head of list
-// returns: void
+//Let's add some function prototypes
 void output(Node *h);
-
-// addNode(Node*&head, float value) adds a new node to  front of list
-// arguments: reference to head node & value to add
-// returns: void
 void addNode(Node*&head, float value);
-
-// deleteNode(Node*&head, float value) deletes a node at a specified position
-// arguments: reference to head node, position to delete
-// returns: true if deleted, otherwise false
 void deleteNode(Node*&head, float value);
-
-// insertNode(Node*&head, float value) inserts a node after a set position
-// arguments: reference to head node, position to insert after, value to insert
-// returns:  true if inserted, otherwise false
 void insertNode(Node*&head, int specific position, float value);
-
-// deleteLinkedList() deletes ENTIRE linked list
-// arguments: reference to head node
-// returns: void
 void deleteList(Node *&head);
 
+//MAIN
 int main() {
     Node *head = nullptr;
     int count = 0;
@@ -127,7 +108,9 @@ int main() {
 
     return 0;
 }
-
+// output(Node *h) Displays linked list
+// Arguments: Node Pointer to head of list
+// returns: void (ALREADY DONE)
 void output(Node * hd) {
     if (!hd) {
         cout << "Empty list.\n";
@@ -141,3 +124,34 @@ void output(Node * hd) {
     }
     cout << endl;
 }
+
+// addNode(Node*&head, float value) adds a new node to  front of list
+// arguments: reference to head node & value to add
+// returns: void
+void addNode(Node*&head, float value){
+    Node *newNode = new Node; //First, we'll dynamically allocate memory for our new node
+    newNode->value = value; // Next, we assign the value that's passed through to our new node
+    newNode->next = head; // now, it points the new node to current head of list
+    head - newNode; // update
+}
+
+// deleteNode(Node*&head, float value) deletes a node at a specified position
+// arguments: reference to head node, position to delete
+// returns: true if deleted, otherwise false
+void deleteNode(Node*&head, float value) {
+
+}
+
+// insertNode(Node*&head, float value) inserts a node after a set position
+// arguments: reference to head node, position to insert after, value to insert
+// returns:  true if inserted, otherwise false
+void insertNode(Node*&head, int specific position, float value) {
+
+}
+
+// deleteLinkedList() deletes ENTIRE linked list
+// arguments: reference to head node
+// returns: void
+void deleteList(Node *&head) {
+
+}}
