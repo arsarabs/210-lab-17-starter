@@ -3,14 +3,41 @@
 #include <iostream>
 using namespace std;
 
+//Constants for linked list size/format
 const int SIZE = 7;  
 
+//Struct for Node
 struct Node {
     float value;
     Node *next;
 };
 
-void output(Node *);
+//Let's add some function prototypes (& headers)
+
+// output(Node *h) Displays linked list
+// Arguments: Node Pointer to head of list
+// returns: void
+void output(Node *h);
+
+// addNode(Node*&head, float value) adds a new node to  front of list
+// arguments: reference to head node & value to add
+// returns: void
+void addNode(Node*&head, float value);
+
+// deleteNode(Node*&head, float value) deletes a node at a specified position
+// arguments: reference to head node, position to delete
+// returns: true if deleted, otherwise false
+void deleteNode(Node*&head, float value);
+
+// insertNode(Node*&head, float value) inserts a node after a set position
+// arguments: reference to head node, position to insert after, value to insert
+// returns:  true if inserted, otherwise false
+void insertNode(Node*&head, int specific position, float value);
+
+// deleteLinkedList() deletes ENTIRE linked list
+// arguments: reference to head node
+// returns: void
+void deleteList(Node *&head);
 
 int main() {
     Node *head = nullptr;
