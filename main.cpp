@@ -138,12 +138,30 @@ void addNode(Node*&head, float value){
 // deleteNode(Node*&head, float value) deletes a node at a specified position
 // arguments: reference to head node, position to delete
 // returns: true if deleted, otherwise false
-void deleteNode(Node*&head, float value) {
+void deleteNode(Node*&head, float position) {
     //If statement for input validation
 if(position < 1) { 
 cout << "Invalid! Must be greater than/equal to 1" << endl;
     return false;
 }
+  Node *current = head; //ptr to transverse
+  Node *previous = nullptr; //to keep track of previous node
+
+    //Now, we need to traverse list to reach a specific position
+    //so we'll use a for-loop
+    for(int i = 0; i < position && current != nullptr; i++) {
+        previous = current; // this updates previous node
+        current= current->next; //& now it moves to the next node
+    }
+
+    //Now, if previous is nullptr, then we know we're deleting head node
+    if(!previous) {
+        head = current->next; //update
+    }else{
+    previous->next = current->next; //By pass current node
+    }
+    delete current; //deallocate to prevent memory leaks
+    return true;
 }
 
 // insertNode(Node*&head, float value) inserts a node after a set position
