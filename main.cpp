@@ -15,7 +15,7 @@ struct Node {
 //Let's add some function prototypes
 void output(Node* h);
 void addNode(Node*& head, float value);
-bool deleteNode(Node*& head, float value);
+bool deleteNode(Node*& head, int specificPosition);
 bool insertNode(Node*& head, int specificPosition, float value);
 void deleteList(Node*& head);
 
@@ -101,13 +101,13 @@ void addNode(Node*& head, float value) {
     Node* newNode = new Node; //First, we'll dynamically allocate memory for our new node
     newNode->value = value; // Next, we assign the value that's passed through to our new node
     newNode->next = head; // now, it points the new node to current head of list
-    head - newNode; // update
+    head = newNode; // update
 }
 
 // deleteNode(Node*&head, float value) deletes a node at a specified position
 // arguments: reference to head node, position to delete
 // returns: true if deleted, otherwise false
-bool deleteNode(Node*& head, float specificPosition) {
+bool deleteNode(Node*& head, int specificPosition) {
     //If statement for input validation
     if (specificPosition < 1) {
         cout << "Invalid! Must be greater than/equal to 1" << endl;
@@ -151,7 +151,7 @@ bool insertNode(Node*& head, int specificPosition, float value) {
     }
 
     //Some more input validaton: 
-    if (current && specificPosition != 0) {
+    if (!current && specificPosition != 0) {
         cout << "Position: " << specificPosition << " does not exist" << endl;
         return false;
     }
