@@ -9,7 +9,7 @@ const int SIZE = 7;
 //Struct for Node
 struct Node {
     float value;
-    Node *next;
+    Node *next; 
 };
 
 //Let's add some function prototypes
