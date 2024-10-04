@@ -1,5 +1,5 @@
 // COMSC-210 | Lab 17 | Anthony R. Sarabia
-// IDE used: Github
+// IDE used: Github & Visual
 #include <iostream> 
 using namespace std;
 
@@ -202,7 +202,10 @@ cout << "Invalid! Must be greater than/equal to 0" << endl;
 // arguments: reference to head node
 // returns: void
 void deleteList(Node *&head) {
+    while(current){
     Node * temp = current;
     current = current->next;
     delete temp;
+    }
+    head = nullptr;
 }
